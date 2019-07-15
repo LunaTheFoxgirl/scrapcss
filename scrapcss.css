@@ -17,6 +17,12 @@
 */
 
 /*
+    Notes:
+    .ndec = no-decoration, if turned on extra decoration (color changes etc) will be turned off
+
+
+
+
     Variables
 */
 :root {
@@ -26,14 +32,14 @@
     --dark-accent: #A59A4E;
     --dark-shades: #242628;
 
-    --default: #a0a0a0;
+    --default: #C9C9C9;
     --primary: #9e8643;
     --info: #242628;
     --success: #65a34c;
     --warning: #e29314;
     --danger: #f44336;
 
-    --shadow-color: #999999;
+    --shadow-color: #C9C9C9;
 }
 
 /*
@@ -41,6 +47,7 @@
 */
 body {
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
 }
 
 /* Cards */
@@ -48,6 +55,35 @@ body {
     border-radius: 32px;
     background-color: var(--light-shades);
     box-shadow:  0px 10px 12px -2px var(--shadow-color);
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--dark-accent);
+    transition-delay: 100ms;
+}
+
+a:visited:not(.ndec) {
+    color: var(--primary);
+}
+
+a:active:not(.ndec) {
+    color: var(--light-accent);
+}
+
+/* Button Links */
+
+a.button {
+    display: block;
+    border: none;
+    padding: 15px 15px;
+    align-content: center;
+    display: inline-block;
+    background-color: var(--default);
+
+    transition-duration: 100ms;
+    box-shadow: 0px 0px 1px var(--shadow-color);
 }
 
 /* Text Input*/
@@ -78,7 +114,7 @@ input[type=text].danger, textarea.danger {
     border-bottom-color: var(--danger) !important;
 }
 
-input[type=text]:focus, textarea:focus {
+input[type=text]:focus:not(.ndec), textarea:focus:not(.ndec) {
     border-bottom-color: var(--primary);
     padding: 4px 4px 2px 4px;
     border-bottom-width: 5px;
@@ -98,11 +134,11 @@ button {
     box-shadow: 0px 0px 1px var(--shadow-color);
 }
 
-button:hover {
+button:hover:not(.ndec) {
     transform: scaleX(1.05) scaleY(1.05);
 }
 
-button:active {
+button:active:not(.ndec) {
     transform: scaleX(0.95) scaleY(0.95);
 }
 
