@@ -1,0 +1,131 @@
+/*
+	The ScrapCSS miniature framework.
+
+	Copyright © Clipsey, 2019
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
+
+/*
+    Variables
+*/
+:root {
+    --light-shades: #F4F6F4;
+    --light-accent: #8FB7B3;
+    --brand-color: #9E8643;
+    --dark-accent: #A59A4E;
+    --dark-shades: #242628;
+
+    --default: #a0a0a0;
+    --primary: #9e8643;
+    --info: #242628;
+    --success: #65a34c;
+    --warning: #e29314;
+    --danger: #f44336;
+
+    --shadow-color: #999999;
+}
+
+/*
+    Main style stuff
+*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Cards */
+.card {
+    border-radius: 32px;
+    background-color: var(--light-shades);
+    box-shadow:  0px 10px 12px -2px var(--shadow-color);
+}
+
+/* Text Input*/
+input[type=text], textarea {
+    background-color: var(--light-shades);
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    padding: 4px 4px 4px 4px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--light-accent);
+    border-bottom-width: 2px;
+
+    transition-duration: 100ms;
+
+    box-shadow: 0px 0px 1px var(--shadow-color);
+}
+
+input[type=text].success, textarea.success {
+    border-bottom-color: var(--success) !important;
+}
+
+input[type=text].warning, textarea.warning {
+    border-bottom-color: var(--warning) !important;
+}
+
+input[type=text].danger, textarea.danger {
+    border-bottom-color: var(--danger) !important;
+}
+
+input[type=text]:focus, textarea:focus {
+    border-bottom-color: var(--primary);
+    padding: 4px 4px 2px 4px;
+    border-bottom-width: 5px;
+}
+
+/* Buttons */
+button {
+    color: var(--light-shades);
+    border: none;
+    padding: 12px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: var(--default);
+
+    transition-duration: 100ms;
+    box-shadow: 0px 0px 1px var(--shadow-color);
+}
+
+button:hover {
+    transform: scaleX(1.05) scaleY(1.05);
+}
+
+button:active {
+    transform: scaleX(0.95) scaleY(0.95);
+}
+
+button.primary {
+    background-color: var(--primary);
+}
+
+button.info {
+    background-color: var(--info);
+}
+
+button.warning {
+    background-color: var(--warning);
+}
+
+button.success {
+    background-color: var(--success);
+}
+
+button.warning {
+    background-color: var(--warning);
+}
+
+button.danger {
+    background-color: var(--warning);
+}
