@@ -1,45 +1,73 @@
 /*
-	The ScrapCSS miniature framework.
-
-	Copyright © Clipsey, 2019
-
-	Licensed under the Apache License, Version 2.0 (the "License");
-	you may not use this file except in compliance with the License.
-	You may obtain a copy of the License at
-
-	http://www.apache.org/licenses/LICENSE-2.0
-
-	Unless required by applicable law or agreed to in writing, software
-	distributed under the License is distributed on an "AS IS" BASIS,
-	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	See the License for the specific language governing permissions and
-	limitations under the License.
+    Clipsey's miniature CSS framework
 */
 
 /*
     Notes:
-    .ndec = no-decoration, if turned on extra decoration (color changes etc) will be turned off
+    ndec = no-decoration, if turned on extra decoration (colors etc) will be turned off
+*/
 
-
-
-
+/*
     Variables
 */
 :root {
-    --light-shades: #F4F6F4;
-    --light-accent: #8FB7B3;
-    --brand-color: #9E8643;
-    --dark-accent: #A59A4E;
-    --dark-shades: #242628;
+    --scrap-light-shades: #F4F6F4;
+    --scrap-light-accent: #8FB7B3;
+    --scrap-brand-color: #9E8643;
+    --scrap-dark-accent: #A59A4E;
+    --scrap-dark-shades: #242628;
 
-    --default: #C9C9C9;
-    --primary: #9e8643;
-    --info: #242628;
-    --success: #65a34c;
-    --warning: #e29314;
-    --danger: #f44336;
+    /* Default neutral color for controls */
+    --scrap-default: #C9C9C9;
+    --scrap-default-select: rgb(175, 175, 175);
+    --scrap-default-hover: rgb(223, 223, 223);
+    
+    /* Primary color for controls */
+    --scrap-primary: #9e8643;
+    --scrap-primary-select: #9e8643;
+    --scrap-primary-hover: #9e8643;
+    
+    /* Info color for controls */
+    --scrap-info: #242628;
+    --scrap-info-select: #242628;
+    --scrap-info-hover: #242628;
+    
+    /* Success color for controls */
+    --scrap-success: #65a34c;
+    --scrap-success-select: #65a34c;
+    --scrap-success-hover: #65a34c;
+    
+    /* Warning color for controls */
+    --scrap-warning: #e29314;
+    --scrap-warning-select: #e29314;
+    --scrap-warning-hover: #e29314;
+    
+    /* Danger color for controls */
+    --scrap-danger: #f44336;
+    --scrap-danger-select: #f44336;
+    --scrap-danger-hover: #f44336;
 
-    --shadow-color: #C9C9C9;
+    --scrap-shadow-color: #C9C9C9;
+
+    --scrap-navbar-height: 64px;
+}
+
+* {
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+/* Header bar*/
+
+.navbar {
+    flex: 1;
+    max-height: var(--navbar-height, var(--scrap-navbar-height));
+    display: inline-flex;
+    background-color: var(--scrap-shadow-color);
+}
+
+.spacer {
+    flex: 5;
 }
 
 /*
@@ -60,80 +88,63 @@ body {
 /* Links */
 a {
     text-decoration: none;
-    color: var(--dark-accent);
-    transition-delay: 100ms;
+    color: var(--dark-accent, var(--scrap-dark-accent));
 }
 
 a:visited:not(.ndec) {
-    color: var(--primary);
+    color: var(--primary, var(--scrap-primary));
 }
 
 a:active:not(.ndec) {
-    color: var(--light-accent);
-}
-
-/* Button Links */
-
-a.button {
-    display: block;
-    border: none;
-    padding: 15px 15px;
-    align-content: center;
-    display: inline-block;
-    background-color: var(--default);
-
-    transition-duration: 100ms;
-    box-shadow: 0px 0px 1px var(--shadow-color);
+    color: var(--light-accent, var(--scrap-light-accent));
 }
 
 /* Text Input*/
 input[type=text], textarea {
-    background-color: var(--light-shades);
+    background-color: var(--light-shades, var(--scrap-light-shades));
     border-left: none;
     border-top: none;
     border-right: none;
     padding: 4px 4px 4px 4px;
     border-bottom-style: solid;
-    border-bottom-color: var(--light-accent);
+    border-bottom-color: var(--light-accent, var(--scrap-light-accent));
     border-bottom-width: 2px;
 
-    transition-duration: 100ms;
-
-    box-shadow: 0px 0px 1px var(--shadow-color);
+    box-shadow: 0px 0px 1px var(--shadow-color, var(--scrap-shadow-color));
 }
 
 input[type=text].success, textarea.success {
-    border-bottom-color: var(--success) !important;
+    border-bottom-color: var(--success, var(--scrap-success)) !important;
 }
 
 input[type=text].warning, textarea.warning {
-    border-bottom-color: var(--warning) !important;
+    border-bottom-color: var(--warning, var(--scrap-warning)) !important;
 }
 
 input[type=text].danger, textarea.danger {
-    border-bottom-color: var(--danger) !important;
+    border-bottom-color: var(--danger, var(--scrap-danger)) !important;
 }
 
 input[type=text]:focus:not(.ndec), textarea:focus:not(.ndec) {
-    border-bottom-color: var(--primary);
+    border-bottom-color: var(--primary, var(--scrap-primary));
     padding: 4px 4px 2px 4px;
     border-bottom-width: 5px;
 }
 
 /* Buttons */
 button {
-    color: var(--light-shades);
+    color: var(--light-shades, var(--scrap-light-shades));
     border: none;
     padding: 12px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    background-color: var(--default);
+    background-color: var(--default, var(--scrap-default));
 
-    transition-duration: 100ms;
-    box-shadow: 0px 0px 1px var(--shadow-color);
+    box-shadow: 0px 0px 1px var(--shadow-color, var(--scrap-shadow-color));
 }
 
+/* Button animation */
 button:hover:not(.ndec) {
     transform: scaleX(1.05) scaleY(1.05);
 }
@@ -142,26 +153,94 @@ button:active:not(.ndec) {
     transform: scaleX(0.95) scaleY(0.95);
 }
 
-button.primary {
-    background-color: var(--primary);
+/* DEFAULT ACTION */
+button:hover, .button:hover {
+    background-color: var(--default-hover, var(--scrap-default-hover));
 }
 
-button.info {
-    background-color: var(--info);
+button:active, .button:active {
+    background-color: var(--default-select, var(--scrap-default-select));
 }
 
-button.warning {
-    background-color: var(--warning);
+/* PRIMARY BUTTON */
+button.primary, .button.primary {
+    background-color: var(--primary, var(--scrap-primary));
 }
 
-button.success {
-    background-color: var(--success);
+button.primary:hover, .button.primary:hover {
+    background-color: var(--primary-hover, var(--scrap-primary-hover));
 }
 
-button.warning {
-    background-color: var(--warning);
+button.primary:active, .button.primary:active {
+    background-color: var(--primary-select, var(--scrap-primary-select));
 }
 
-button.danger {
-    background-color: var(--warning);
+/* INFO BUTTON */
+button.info, .button.info {
+    background-color: var(--info, var(--scrap-info));
+}
+
+button.info:hover, .button.info:hover {
+    background-color: var(--info-hover, var(--scrap-info-hover));
+}
+
+button.info:active, .button.info:active {
+    background-color: var(--info-select, var(--scrap-info-select));
+}
+
+/* SUCCESS BUTTON */
+button.success, .button.success {
+    background-color: var(--success, var(--scrap-success));
+}
+
+button.success:hover, .button.success:hover {
+    background-color: var(--success-hover, var(--scrap-success-hover));
+}
+
+button.success:active, .button.success:active {
+    background-color: var(--success-select, var(--scrap-success-select));
+}
+
+/* WARNING BUTTON */
+button.warning, .button.warning {
+    background-color: var(--warning, var(--scrap-warning));
+}
+
+button.warning:hover, .button.warning:hover {
+    background-color: var(--warning-hover, var(--scrap-warning-hover));
+}
+
+button.warning:active, .button.warning:active {
+    background-color: var(--warning-select, var(--scrap-warning-select));
+}
+
+/* DANGER BUTTON */
+button.danger, .button.danger {
+    background-color: var(--danger, var(--scrap-danger));
+}
+
+button.danger:hover, .button.danger:hover {
+    background-color: var(--danger-hover, var(--scrap-danger-hover));
+}
+
+button.danger:active, .button.danger:active {
+    background-color: var(--danger-select, var(--scrap-danger-select));
+}
+
+/* Button Links wrapped */
+* > .button {
+    box-shadow: 0px 0px 1px var(--shadow-color, var(--scrap-shadow-color));
+
+    display: block;
+    position: relative;
+    padding: 15px 15px;
+    color: var(--dark-shades, var(--scrap-dark-shades));
+}
+
+.button {
+    background-color: var(--default, var(--scrap-default));
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-blend-mode: darken;
 }
